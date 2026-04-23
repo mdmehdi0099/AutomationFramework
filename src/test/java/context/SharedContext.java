@@ -1,0 +1,51 @@
+package context;
+
+
+import lombok.*;
+import org.openqa.selenium.WebDriver;
+import pageFactory.loginPageFactory;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class SharedContext {
+    private WebDriver driver;
+    private String testCaseID;
+    private String testName;
+    private String browser;
+    private String buildName;
+    private Throwable scenarioError;
+    private String projectName;
+    private boolean shouldSkip=true;
+    private boolean isTestrail;
+    private String accessToken;
+    private final ScenarioContext scenarioContext=new ScenarioContext();
+    public ScenarioContext getScenarioContext(){
+        return scenarioContext;
+    }
+
+    public <T> T get(String key){
+        return scenarioContext.get(key);
+    }
+    public void set(String key,Object value){
+        scenarioContext.set(key,value);
+    }
+
+    //Page Objects
+    private loginPageFactory loginPageFactory;
+
+    public loginPageFactory getLoginPageFactory() {
+        return loginPageFactory;
+    }
+
+    public void setLoginPageFactory(loginPageFactory loginPageFactory) {
+        this.loginPageFactory = loginPageFactory;
+    }
+
+    public void initializePageObject(WebDriver driver){
+        this.loginPageFactory=new loginPageFactory(driver);
+    }
+
+}
