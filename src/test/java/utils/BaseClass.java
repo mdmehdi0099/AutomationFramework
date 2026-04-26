@@ -29,7 +29,7 @@ public class BaseClass {
     public BaseClass() throws ConfigException {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        explicitWaitListener = new WebDriverWait(driver, Duration.ofSeconds(300));
+        explicitWaitListener = new WebDriverWait(driver, Duration.ofSeconds(30));
     }
 
     {

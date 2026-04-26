@@ -19,7 +19,7 @@ public class loginPageFactory {
     public loginPageFactory(WebDriver driver){
         this.driver=driver;
         PageFactory.initElements(driver,this);
-        this.wait=new WebDriverWait(driver, Duration.ofSeconds(300));
+        this.wait=new WebDriverWait(driver, Duration.ofSeconds(30));
     }
 
     @FindBy(xpath = "//input[@id='username']")

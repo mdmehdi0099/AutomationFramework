@@ -7,6 +7,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -61,14 +62,15 @@ public class StepDefinition {
     }
 
     @And("The user clicks on the login button")
-    public void the_user_clicks_on_the_login_button() {
+    public void the_user_clicks_on_the_login_button() throws InterruptedException {
         context.getLoginPageFactory().clickSignInBtn();
-
+        Thread.sleep(5000);
     }
 
     @Then("The user should be redirected to the dashboard")
     public void the_user_should_be_redirected_to_the_dashboard() {
-
+        String currentUrl = context.getDriver().getCurrentUrl();
+        //Assert.assertTrue(currentUrl.contains("dashboard1"));
     }
 
 

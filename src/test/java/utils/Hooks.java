@@ -11,6 +11,8 @@ import io.cucumber.java.Before;
 import io.cucumber.java.After;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testng.ITestResult;
+import org.testng.Reporter;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -87,38 +89,56 @@ public class Hooks {
     }
     @After
     public void afterScenario(Scenario scenario) throws Exception{
+        ITestResult result = Reporter.getCurrentTestResult();
+
         String testCaseId=context.getTestCaseID();
         ByteArrayOutputStream consoleOutput=new ByteArrayOutputStream();
         PrintStream originalOut=System.out;
         System.setOut(new PrintStream(consoleOutput));
         String status="passed";
         String comment="PASSED";
+        boolean isFinalAttempt = true;
         try{
             if(scenario.isFailed()){
                 status="failed";
                 comment="FAILED: "+scenario.getStatus().toString()+"\n"+(scenario.getStatus().name().equals("FAILED")?scenario.getName():"");
             }
+            //detect any retry
+            if (result != null) {
+                Object retryAttr = result.getAttribute("retry");
+
+                if (retryAttr != null && (boolean) retryAttr) {
+                    isFinalAttempt = false;
+                }
+            }
+
             System.setOut(originalOut);
             comment+="\nConsole Output:\n"+consoleOutput.toString();
             comment+="\nScenario: "+scenario.getName();
             comment+="\nTags: "+scenario.getSourceTagNames();
 
-            if (context.isTestrail()){
-                if (testCaseId!=null && !testCaseId.isEmpty()){
+            if (isFinalAttempt && context.isTestrail() && testCaseId != null && !testCaseId.isEmpty()){
                     if (status.equals("passed")){
                         TestRailPassUpdate(testCaseId,comment);
                     }else{
                         TestRailFailUpdate(testCaseId,comment);
                     }
-                }
             }
-
         }catch (Exception e){
             System.err.println("Error during afterscenario logic : "+e.getMessage());
             e.printStackTrace();
         }finally{
-            System.out.println("Driver quit after scenario : "+scenario.getName());
+            try {
+                if (context.getDriver() != null) {
+                    context.getDriver().quit();
+                    log.info("Driver quit for scenario: {}", scenario.getName());
+                }
+            } catch (Exception e) {
+                log.error("Error while quitting driver", e);
+            }
+            System.setOut(originalOut);
         }
+
     }
 
     public void TestRailPassUpdate(String testCaseId,String message){
