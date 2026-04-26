@@ -1,4 +1,4 @@
-package hooks;
+package utils;
 
 import com.gurock.qa.testrailManager.TestRailManager;
 import context.SharedContext;
@@ -10,11 +10,9 @@ import io.cucumber.java.Before;
 import io.cucumber.java.After;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import utils.ConfigReader;
-import io.cucumber.java.Scenario;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputFilter;
 import java.io.PrintStream;
 import java.util.Collection;
 import java.util.Map;
@@ -25,7 +23,7 @@ public class Hooks {
     public Hooks(SharedContext context) {
         this.context = context;
     }
-    private static final Logger log= LoggerFactory.getLogger(Hooks.class);
+    private static final Logger log=LoggerFactory.getLogger(Hooks.class);
 
     @BeforeAll
     public static void beforeAll(){
@@ -34,7 +32,7 @@ public class Hooks {
     @Before
     public void beforeScenario(Scenario scenario) throws IOException {
         Collection<String> tags=scenario.getSourceTagNames();
-        Boolean isTestrail=Boolean.valueOf(ConfigReader.get("TestrailReadTestcase"));
+        Boolean isTestrail=Boolean.valueOf(ConfigReader.get("TestrailReadTestcase","false"));
         context.setTestrail(isTestrail);
 
         String testCaseId=null;
@@ -49,11 +47,11 @@ public class Hooks {
         try{
             String projectName="";
             if(context.isTestrail()){
-                String projectID=ConfigReader.get("projectID");
+                String projectID=ConfigReader.get("projectID","1");
                 projectName=getProjectName(projectID);
                 context.setProjectName(projectName);
             }else{
-                projectName=ConfigReader.get("projectName");
+                projectName=ConfigReader.get("projectName","projectName");
                 context.setProjectName(projectName);
             }
         }catch (IOException e){
@@ -63,11 +61,11 @@ public class Hooks {
         try{
             String buildName="";
             if(context.isTestrail()){
-                String buildID=ConfigReader.get("TESTPLANID");
+                String buildID=ConfigReader.get("TESTPLANID","1");
                 buildName=getBuildName(buildID);
                 context.setBuildName(buildName);
             }else{
-                buildName=ConfigReader.get("BuildName");
+                buildName=ConfigReader.get("BuildName","BuildName");
                 context.setBuildName(buildName);
             }
         }catch (IOException e){
@@ -82,7 +80,7 @@ public class Hooks {
                 }
             }
         }else{
-            String browser=ConfigReader.get("browser");
+            String browser=ConfigReader.get("browser","browser");
             context.setBrowser(browser);
         }
     }
@@ -120,9 +118,6 @@ public class Hooks {
         }finally{
             System.out.println("Driver quit after scenario : "+scenario.getName());
         }
-
-
-
     }
 
     public void TestRailPassUpdate(String testCaseId,String message){
@@ -145,9 +140,9 @@ public class Hooks {
 
     public static String getProjectName(String projectID) throws IOException{
         String projectName="";
-        String URL=ConfigReader.get("TESTRAILAPIProjectNameURL")+projectID;
-        String username1=ConfigReader.get("TEStrailusername");
-        String password= ConfigReader.get("testrailPassword");
+        String URL=ConfigReader.get("TESTRAILAPIProjectNameURL","testRail")+projectID;
+        String username1=ConfigReader.get("TEStrailusername","testRailUserName");
+        String password= ConfigReader.get("testrailPassword","TestrailPassword");
         //sending the get request
         Response response= RestAssured.given().auth()
                 .preemptive().basic(username1,password)
@@ -163,9 +158,9 @@ public class Hooks {
 
     public static String getBuildName(String buildID) throws IOException{
         String buildName="";
-        String URL=ConfigReader.get("TESTRAILAPIProjectNameURL")+buildID;
-        String username1=ConfigReader.get("TEStrailusername");
-        String password= ConfigReader.get("testrailPassword");
+        String URL=ConfigReader.get("TESTRAILAPIProjectNameURL","testrailAPIProjectNameURL")+buildID;
+        String username1=ConfigReader.get("TEStrailusername","TestRailUsernmae");
+        String password= ConfigReader.get("testrailPassword","TestrailPassword");
         //sending the get request
         Response response= RestAssured.given().auth()
                 .preemptive().basic(username1,password)

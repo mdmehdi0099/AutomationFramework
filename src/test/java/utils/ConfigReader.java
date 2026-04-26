@@ -18,7 +18,6 @@ public class ConfigReader {
         if (value==null){
             throw new RuntimeException("value of key is null");
         }
-
         return value.trim();
     }
     public static String get(String key,String defaultValue){
@@ -31,21 +30,15 @@ public class ConfigReader {
 
     private static void ensureLoaded() {
         if (!loaded){
-
             load();
         }
-
     }
 
     public static void load() {
-
         if (!loaded){
-
             //only one thread can execute the critical section at a time.
             synchronized (ConfigReader.class){
-
                 if (!loaded){
-
                     String resourcePath="config/global.properties";
                     try(InputStream is= ConfigReader.class.getClassLoader().getResourceAsStream(resourcePath)){
                         if (is==null){

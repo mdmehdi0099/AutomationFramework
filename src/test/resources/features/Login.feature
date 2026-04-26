@@ -1,4 +1,3 @@
-
 Feature: Verify login functionality of the application
   @C09
   Scenario Outline: To login to the application and verify successful login
@@ -10,4 +9,3 @@ Feature: Verify login functionality of the application
     Examples:
       | url                                | username          | password               |
       | https://automationpracticehub.com/ | sagesyntaxacademy | BuildingExcellence@111 |
-

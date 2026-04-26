@@ -1,7 +1,6 @@
 package utils;
 
 import com.gurock.qa.testrailManager.TestRailManager;
-import hooks.Hooks;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -12,7 +11,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.io.ObjectInputFilter;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
@@ -33,7 +31,7 @@ public class BaseClass {
     }
 
     {
-        isTestrail = Boolean.valueOf(ConfigReader.get("TestrailReadTestCase"));
+        isTestrail = Boolean.valueOf(ConfigReader.get("TestrailReadTestCase","false"));
         if (Boolean.TRUE.equals(isTestrail)) {
             TestRailManager.initializeTestCasesFromPlan();
         }
