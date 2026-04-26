@@ -2,6 +2,7 @@ package utils;
 
 import com.gurock.qa.testrailManager.TestRailManager;
 import context.SharedContext;
+import exceptions.config.ConfigException;
 import io.cucumber.java.Scenario;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -26,11 +27,11 @@ public class Hooks {
     private static final Logger log=LoggerFactory.getLogger(Hooks.class);
 
     @BeforeAll
-    public static void beforeAll(){
+    public static void beforeAll() throws ConfigException {
         ConfigReader.load();
     }
     @Before
-    public void beforeScenario(Scenario scenario) throws IOException {
+    public void beforeScenario(Scenario scenario) throws IOException, ConfigException {
         Collection<String> tags=scenario.getSourceTagNames();
         Boolean isTestrail=Boolean.valueOf(ConfigReader.get("TestrailReadTestcase","false"));
         context.setTestrail(isTestrail);
@@ -138,7 +139,7 @@ public class Hooks {
     }
 
 
-    public static String getProjectName(String projectID) throws IOException{
+    public static String getProjectName(String projectID) throws IOException, ConfigException {
         String projectName="";
         String URL=ConfigReader.get("TESTRAILAPIProjectNameURL","testRail")+projectID;
         String username1=ConfigReader.get("TEStrailusername","testRailUserName");
@@ -156,7 +157,7 @@ public class Hooks {
         return projectName;
     }
 
-    public static String getBuildName(String buildID) throws IOException{
+    public static String getBuildName(String buildID) throws IOException, ConfigException {
         String buildName="";
         String URL=ConfigReader.get("TESTRAILAPIProjectNameURL","testrailAPIProjectNameURL")+buildID;
         String username1=ConfigReader.get("TEStrailusername","TestRailUsernmae");

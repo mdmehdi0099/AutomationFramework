@@ -1,6 +1,8 @@
 package utils;
 
 import com.gurock.qa.testrailManager.TestRailManager;
+import exceptions.config.ConfigException;
+import exceptions.driver.DriverInitializationException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -24,10 +26,10 @@ public class BaseClass {
     RemoteWebDriver driver = null;
     private Boolean isTestrail;
 
-    public BaseClass() {
+    public BaseClass() throws ConfigException {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        explicitWaitListener = new WebDriverWait(driver, Duration.ofSeconds(100));
+        explicitWaitListener = new WebDriverWait(driver, Duration.ofSeconds(300));
     }
 
     {
@@ -37,7 +39,7 @@ public class BaseClass {
         }
     }
 
-    public WebDriver initializeDriver(String driverType, String projectName, String buildName, String testName) throws MalformedURLException {
+    public WebDriver initializeDriver(String driverType, String projectName, String buildName, String testName) throws MalformedURLException, ConfigException {
         if (driver == null) {
             String driver1 = ConfigReader.get("TestDriver");
             String browser = ConfigReader.get("TestBrowserForUIAutomation");
@@ -51,11 +53,15 @@ public class BaseClass {
                     driver = new ChromeDriver();
                 } else if (browser.equalsIgnoreCase("MozilaFireFox")) {
 
+                }else{
+                    throw new DriverInitializationException("Unsupported browser: " + browser);
                 }
-            } else {
+            } else if(driverType.equalsIgnoreCase("Remote")){
                 DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
                 //set the capability
                 driver = new RemoteWebDriver(new URL("http://" + username + ":" + AccessKey + gridURL), desiredCapabilities);
+            }else{
+                throw new DriverInitializationException("Unsupported driverType: " + driverType);
             }
             return driver;
         }

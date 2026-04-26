@@ -1,7 +1,9 @@
 package stepDefinitions;
 
 import context.SharedContext;
+import exceptions.config.ConfigException;
 import io.cucumber.java.Scenario;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -30,7 +32,7 @@ public class StepDefinition {
     int testCase = 0;
 
 
-    public StepDefinition(SharedContext context, BaseClass baseClass) {
+    public StepDefinition(SharedContext context, BaseClass baseClass) throws ConfigException {
         this.context = context;
         this.baseClass = baseClass;
     }
@@ -39,7 +41,7 @@ public class StepDefinition {
 
 
     @Given("The user navigates to {string}")
-    public void the_user_navigates_to(String url) throws MalformedURLException {
+    public void the_user_navigates_to(String url) throws MalformedURLException, ConfigException {
         String testName= context.getTestName();
         driver1= ConfigReader.get("TestDriver");
         projectName=ConfigReader.get("ProjectName");
@@ -54,11 +56,13 @@ public class StepDefinition {
 
     @When("The user enters username {string} and password {string}")
     public void the_user_enters_username_and_password(String string, String string2) {
-
+        context.getLoginPageFactory().enterUsername(string);
+        context.getLoginPageFactory().enterPassword(string2);
     }
 
-    @When("The user clicks on the login button")
+    @And("The user clicks on the login button")
     public void the_user_clicks_on_the_login_button() {
+        context.getLoginPageFactory().clickSignInBtn();
 
     }
 
