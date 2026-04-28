@@ -32,7 +32,6 @@ public class StepDefinition {
     int testScenario = 0;
     int testCase = 0;
 
-
     public StepDefinition(SharedContext context, BaseClass baseClass) throws ConfigException {
         this.context = context;
         this.baseClass = baseClass;
@@ -56,14 +55,17 @@ public class StepDefinition {
     }
 
     @When("The user enters username {string} and password {string}")
-    public void the_user_enters_username_and_password(String string, String string2) {
-        context.getLoginPageFactory().enterUsername(string);
-        context.getLoginPageFactory().enterPassword(string2);
+    public void the_user_enters_username_and_password(String username, String password) {
+        context.getLoginPageFactory().enterUsername(username);
+        log.info("The user enters username");
+        context.getLoginPageFactory().enterPassword(password);
+        log.info("The user enters password");
     }
 
     @And("The user clicks on the login button")
     public void the_user_clicks_on_the_login_button() throws InterruptedException {
         context.getLoginPageFactory().clickSignInBtn();
+        log.info("The user clicks on the login button");
         Thread.sleep(5000);
     }
 

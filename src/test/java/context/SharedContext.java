@@ -3,6 +3,7 @@ package context;
 
 import lombok.*;
 import org.openqa.selenium.WebDriver;
+import pageFactory.CartPageFactory;
 import pageFactory.loginPageFactory;
 
 @Getter
@@ -35,6 +36,15 @@ public class SharedContext {
 
     //Page Objects
     private loginPageFactory loginPageFactory;
+    private CartPageFactory cartPageFactory;
+
+    public CartPageFactory getCartPageFactory() {
+        return cartPageFactory;
+    }
+
+    public void setCartPageFactory(CartPageFactory cartPageFactory) {
+        this.cartPageFactory = cartPageFactory;
+    }
 
     public loginPageFactory getLoginPageFactory() {
         return loginPageFactory;
@@ -46,6 +56,7 @@ public class SharedContext {
 
     public void initializePageObject(WebDriver driver){
         this.loginPageFactory=new loginPageFactory(driver);
+        this.cartPageFactory=new CartPageFactory(driver);
     }
 
 }

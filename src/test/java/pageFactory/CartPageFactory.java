@@ -12,11 +12,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class loginPageFactory {
+public class CartPageFactory {
 
     WebDriver driver;
     WebDriverWait wait;
-    public loginPageFactory(WebDriver driver){
+    public CartPageFactory(WebDriver driver){
         this.driver=driver;
         PageFactory.initElements(driver,this);
         this.wait=new WebDriverWait(driver, Duration.ofSeconds(30));
@@ -32,6 +32,7 @@ public class loginPageFactory {
            throw new ElementInteractionException("Unable to enter username:", e);
        }
     }
+
 
     @FindBy(xpath = "//input[@id='password']")
     WebElement password;
