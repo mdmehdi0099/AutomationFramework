@@ -43,7 +43,7 @@ public class StepDefinition {
     @Given("The user navigates to {string}")
     public void the_user_navigates_to(String url) throws MalformedURLException, ConfigException {
         String testName= context.getTestName();
-        driver1= ConfigReader.get("TestDriver");
+        driver1= ConfigReader.get("ExecutionType");
         projectName=ConfigReader.get("ProjectName");
         buildName=context.getBuildName();
         projectName=context.getProjectName();

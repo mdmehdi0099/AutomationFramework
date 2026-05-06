@@ -58,7 +58,16 @@ public class CartPageFactory {
 
     }
 
+    @FindBy(xpath = "//input[@id='username']")
+    WebElement cartmenu;
 
+    public void clickonCartMenu(String userName){
+        try {
+            wait.until(ExpectedConditions.visibilityOf(cartmenu)).click();
+        }catch (TimeoutException | NoSuchElementException e){
+            throw new ElementInteractionException("Unable to enter username:", e);
+        }
+    }
 
 
 

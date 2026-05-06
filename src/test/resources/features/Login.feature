@@ -1,4 +1,7 @@
 Feature: Verify login functionality of the application
+  Background:
+    Given The user navigates to "<url>"
+
   @C09
   Scenario Outline: To login to the application and verify successful login using valid credential
     Given The user navigates to "<url>"
