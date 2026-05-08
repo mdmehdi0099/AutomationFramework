@@ -1,10 +1,7 @@
 package pageFactory;
 
 import exceptions.element.ElementInteractionException;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -53,13 +50,44 @@ public class loginPageFactory {
         }catch (TimeoutException | NoSuchElementException e){
             throw new ElementInteractionException("Unable to click signIn button:", e);
         }
+    }
 
-
+    @FindBy(xpath = "//li[contains(text(),'Products')]")
+    WebElement product;
+    public void clickProductMenu(){
+        try {
+            wait.until(ExpectedConditions.visibilityOf(product)).click();
+        }catch (TimeoutException | NoSuchElementException e){
+           throw new ElementInteractionException("Unable to click signIn button:", e);
+        }
     }
 
 
+    @FindBy(xpath = "(//button[contains(text(),'Add to cart')])[2]")
+    WebElement cameraAddToCart;
+    public void clickOnCameraAddToCart(){
+        try {
+            wait.until(ExpectedConditions.visibilityOf(cameraAddToCart)).click();
+        }catch (TimeoutException | NoSuchElementException e){
+            throw new ElementInteractionException("Unable to click cameraAddToCart:", e);
+        }
+    }
 
+    @FindBy(xpath = "//p[contains(text(),'Item added successfully')]")
+    WebElement itemAddedMessage;
+    public void waitForItemAddedMessage() {
+        wait.until(ExpectedConditions.visibilityOf(itemAddedMessage));
+    }
 
+    public void loadPage() {
+        loginPageFactory.waitForPageLoad(wait);
+    }
+    public static void waitForPageLoad(WebDriverWait wait) {
+        wait.until(webDriver ->
+                ((JavascriptExecutor) webDriver)
+                        .executeScript("return document.readyState")
+                        .equals("complete"));
+    }
 
 
 
