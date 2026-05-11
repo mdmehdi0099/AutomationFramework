@@ -55,6 +55,9 @@ public class StepDefinition {
         context.initializePageObject(driver);
         driver.get(url);
         driver.manage().window().maximize();
+        context.setStudentName("Mandeep");
+        context.set("WebsiteURL",url);
+        context.set("WebsiteURL123","123544");
     }
 
     @When("The user enters username {string} and password {string}")
@@ -70,6 +73,11 @@ public class StepDefinition {
         context.getLoginPageFactory().clickSignInBtn();
         log.info("The user clicks on the login button");
         Thread.sleep(5000);
+        System.out.println("The value of WebsiteURL is : "+context.get("WebsiteURL"));
+        System.out.println("The value of WebsiteURL123 is : "+context.get("WebsiteURL123"));
+        log.info("The value of WebsiteURL is :{}",context.get("WebsiteURL"));
+        log.info("The value of WebsiteURL123 is :{}",context.get("WebsiteURL123"));
+
     }
 
     @Then("The user should be redirected to the dashboard")
@@ -92,11 +100,20 @@ public class StepDefinition {
     public void the_user_will_click_on_addto_cart_button() {
         context.getLoginPageFactory().clickOnCameraAddToCart();
         log.info("The user will click on AddtoCart button");
+        String studentName=context.getStudentName();
+        log.info("The name of student is :{} ",studentName);
+        if (studentName.equalsIgnoreCase("Mandeep")){
+            Assert.assertTrue(true);
+        }else{
+            Assert.fail();
+        }
     }
     @Then("The user will check for the success message")
     public void the_user_will_check_for_the_success_message() {
         //context.getLoginPageFactory().waitForItemAddedMessage();
         log.info("The user will check for the success message");
+        String studentName=context.getStudentName();
+        log.info("The name of student is :{} ",studentName);
     }
 
 

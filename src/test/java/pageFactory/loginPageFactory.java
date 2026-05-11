@@ -62,7 +62,6 @@ public class loginPageFactory {
         }
     }
 
-
     @FindBy(xpath = "(//button[contains(text(),'Add to cart')])[2]")
     WebElement cameraAddToCart;
     public void clickOnCameraAddToCart(){

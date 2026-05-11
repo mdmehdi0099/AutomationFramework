@@ -22,12 +22,13 @@ public class SharedContext {
     private boolean shouldSkip=true;
     private boolean isTestrail;
     private String accessToken;
+    private String studentName;
     private final ScenarioContext scenarioContext=new ScenarioContext();
     public ScenarioContext getScenarioContext(){
         return scenarioContext;
     }
 
-    public <T> T get(String key){
+    public <T> String get(String key){
         return scenarioContext.get(key);
     }
     public void set(String key,Object value){
