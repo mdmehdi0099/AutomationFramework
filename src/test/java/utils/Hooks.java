@@ -9,6 +9,8 @@ import io.restassured.response.Response;
 import io.cucumber.java.BeforeAll;
 import io.cucumber.java.Before;
 import io.cucumber.java.After;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.ITestResult;
@@ -89,6 +91,7 @@ public class Hooks {
     }
     @After
     public void afterScenario(Scenario scenario) throws Exception{
+        WebDriver driver=context.getDriver();
         ITestResult result = Reporter.getCurrentTestResult();
 
         String testCaseId=context.getTestCaseID();
@@ -116,8 +119,15 @@ public class Hooks {
             comment+="\nConsole Output:\n"+consoleOutput.toString();
             comment+="\nScenario: "+scenario.getName();
             comment+="\nTags: "+scenario.getSourceTagNames();
-
-            if (isFinalAttempt && context.isTestrail() && testCaseId != null && !testCaseId.isEmpty()){
+            String ExecutionType=ConfigReader.get("ExecutionType");
+            Boolean updateLambda= Boolean.valueOf(ConfigReader.get("UpdateLambda"));
+            Boolean UpdateTestrail= Boolean.valueOf(ConfigReader.get("UpdateTestrail"));
+            if ("Remote".equalsIgnoreCase(ExecutionType)&&updateLambda){
+                if (driver instanceof JavascriptExecutor){
+                    ((JavascriptExecutor)driver).executeScript("lambda-status="+status);
+                }
+            }
+            if (isFinalAttempt && context.isTestrail() && testCaseId != null && !testCaseId.isEmpty()&&UpdateTestrail){
                     if (status.equals("passed")){
                         TestRailPassUpdate(testCaseId,comment);
                     }else{

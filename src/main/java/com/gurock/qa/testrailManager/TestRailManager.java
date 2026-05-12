@@ -7,8 +7,14 @@ import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -30,6 +36,7 @@ public class TestRailManager {
         if (apiClient != null) return;
         TEST_RAIL_USERNAME = getGlobalvalue("TestRailUsername");
         TEST_RAIL_PASSWORD = getGlobalvalue("TestRailPassword");
+        disableSSlVerification();
         apiClient = new APIClient(TEST_RAIL_ENGINE_URL);
         apiClient.setUser(TEST_RAIL_USERNAME);
         apiClient.setPassword(TEST_RAIL_PASSWORD);
@@ -45,22 +52,45 @@ public class TestRailManager {
         try{
             loadTestRailCredentials();
             String testPlanId=getGlobalvalue("TESTPLANID");
-            JSONObject plan=(JSONObject)apiClient.sendGet("get_plan/"+testPlanId);
-            JSONArray entries=(JSONArray) plan.get("entries");
-            String build=plan.get("name").toString();
+            JSONObject plan=(JSONObject)apiClient.sendGet("api/v2/get_plan/"+testPlanId);
+            if (plan==null){
+                throw new RuntimeException("TestRail plan response is null for plan ID: "+testPlanId);
+            }
+            String build=plan.get("name")!=null?plan.get("name").toString():"UNKNOWN_BUILD";
+            Object projectIdObj=plan.get("project_id");
+            if (projectIdObj==null){
+                throw new RuntimeException("project_id is missing in Testrail plan: "+testPlanId);
+            }
+
+//            JSONArray entries=(JSONArray) plan.get("entries");
+//            String build=plan.get("name").toString();
             String projectId=plan.get("project_id").toString();
-            JSONObject project=(JSONObject) apiClient.sendGet("get_project/"+projectId);
-            String projectName=project.get("name").toString();
+            JSONObject project=(JSONObject) apiClient.sendGet("api/v2/get_project/"+projectId);
+            String projectName=project!=null&&project.get("name")!=null?
+                    project.get("name").toString():"UNKNOWN_PROJECT";
+            JSONArray entries=(JSONArray) plan.get("entries");
+            if (entries==null){
+                log.info("No entries found in TestRail plan {}",testPlanId);
+                return;
+            }
             for(Object entryObj:entries){
                 JSONObject entry=(JSONObject) entryObj;
                 JSONArray runs=(JSONArray) entry.get("runs");
+                if (runs==null){
+                    log.info("No runs found in entry");
+                    continue;
+                }
                 for(Object runObj:runs){
                     JSONObject run=(JSONObject) runObj;
+                    if (run.get("id")==null){
+                        log.info("RUN ID missing, skipping run");
+                        continue;
+                    }
                     String runId=run.get("id").toString();
+                    String browser=run.get("config")!=null?run.get("config").toString():"chrome";
 
-                    String browser=run.containsKey("config")?run.get("config").toString():"chrome";
+                    Object testResponse=apiClient.sendGet("api/v2/get_tests/"+runId);
 
-                    Object testResponse=apiClient.sendGet("get_tests/"+runId);
                     if(testResponse instanceof JSONObject){
                         JSONObject responseObj=(JSONObject) testResponse;
                         JSONArray tests=(JSONArray)responseObj.get("tests");
@@ -123,10 +153,38 @@ public class TestRailManager {
             Map<String,Object> data=new HashMap<>();
             data.put("status_id",status);
             data.put("comment",message);
-            apiClient.sendPost("add_result_for_case/"+runId+"/"+caseId,data);
+            apiClient.sendPost("api/v2/add_result_for_case/"+runId+"/"+caseId,data);
             log.info("Posted result for case %s in run %s%n",caseId,runId);
         }catch (APIException e){
             log.info("Error posting result: "+e.getMessage());
+        }
+    }
+    public static void disableSSlVerification(){
+        try{
+            TrustManager[] trustAllCerts=new TrustManager[]{
+                    new X509TrustManager() {
+                        @Override
+                        public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+
+                        }
+
+                        @Override
+                        public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+
+                        }
+
+                        @Override
+                        public X509Certificate[] getAcceptedIssuers() {
+                            return new X509Certificate[0];
+                        }
+                    }
+            };
+            SSLContext sc=SSLContext.getInstance("TLS");
+            sc.init(null,trustAllCerts,new java.security.SecureRandom());
+            HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+            HttpsURLConnection.setDefaultHostnameVerifier((hostname, session) -> true);
+        }catch (Throwable e){
+            throw new RuntimeException("Failed to disable SSL verification",e);
         }
     }
 

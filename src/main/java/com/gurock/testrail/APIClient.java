@@ -43,7 +43,7 @@ public class APIClient
             base_url += "/";
         }
 
-        this.m_url = base_url + "index.php?/api/v2/";
+        this.m_url = base_url;
     }
 
     /**

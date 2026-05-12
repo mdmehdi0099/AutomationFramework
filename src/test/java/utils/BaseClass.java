@@ -18,8 +18,6 @@ import java.net.URL;
 import java.time.Duration;
 
 public class BaseClass {
-
-
     private static final Logger log = LoggerFactory.getLogger(BaseClass.class);
     WebDriverWait explicitWaitListener;
 

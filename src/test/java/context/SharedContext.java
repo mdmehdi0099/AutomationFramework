@@ -23,6 +23,7 @@ public class SharedContext {
     private boolean isTestrail;
     private String accessToken;
     private String studentName;
+    private boolean UpdateLambda;
     private final ScenarioContext scenarioContext=new ScenarioContext();
     public ScenarioContext getScenarioContext(){
         return scenarioContext;
