@@ -3,7 +3,7 @@ Feature: Verify login functionality of the application
   Background:
     Given The user navigates to the application "https://automationpracticehub.com/"
 
-  @C09
+  @C46
   Scenario Outline: Login to the application and verify successful login with valid credentials
     When The user enters username "<username>" and password "<password>"
     And The user clicks on the login button
@@ -12,7 +12,7 @@ Feature: Verify login functionality of the application
     Examples:
       | username          | password               |
       | sagesyntaxacademy | BuildingExcellence@111 |
-  @C10
+  @C52
   Scenario Outline: Login to the application and verify successful login with valid credentials
     When The user enters username "<username>" and password "<password>"
     And The user clicks on the login button

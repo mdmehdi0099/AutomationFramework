@@ -62,10 +62,16 @@ public class loginPageFactory {
         }
     }
 
+    public void scrollThePage(WebElement webElement){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", webElement);
+    }
+
     @FindBy(xpath = "(//button[contains(text(),'Add to cart')])[2]")
     WebElement cameraAddToCart;
     public void clickOnCameraAddToCart(){
         try {
+            scrollThePage(cameraAddToCart);
             wait.until(ExpectedConditions.visibilityOf(cameraAddToCart)).click();
         }catch (TimeoutException | NoSuchElementException e){
             throw new ElementInteractionException("Unable to click cameraAddToCart:", e);
