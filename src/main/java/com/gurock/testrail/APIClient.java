@@ -94,6 +94,7 @@ public class APIClient
      *
      * If 'get_attachment/:attachment_id', returns a String
      */
+
     public Object sendGet(String uri, String data)
             throws MalformedURLException, IOException, APIException
     {
@@ -103,6 +104,7 @@ public class APIClient
     public Object sendGet(String uri)
             throws MalformedURLException, IOException, APIException
     {
+        System.out.println("The value of url is :"+uri);
         return this.sendRequest("GET", uri, null);
     }
 
@@ -200,8 +202,7 @@ public class APIClient
                     ostream.close();
                 }
             }
-        }
-        else	// GET request
+        }else	// GET request
         {
             conn.addRequestProperty("Content-Type", "application/json");
         }
@@ -210,6 +211,7 @@ public class APIClient
         // by getOutputStream above) and record any occurred errors (we use
         // the error stream in this case).
         int status = conn.getResponseCode();
+        System.out.println("the value of status code is:"+status);
 
         InputStream istream;
         if (status != 200)

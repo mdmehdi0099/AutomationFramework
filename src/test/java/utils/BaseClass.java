@@ -3,6 +3,7 @@ package utils;
 import com.gurock.qa.testrailManager.TestRailManager;
 import exceptions.config.ConfigException;
 import exceptions.driver.DriverInitializationException;
+import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -55,9 +56,27 @@ public class BaseClass {
                     throw new DriverInitializationException("Unsupported browser: " + browser);
                 }
             } else if(driverType.equalsIgnoreCase("Remote")){
-                DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
                 //set the capability
-                driver = new RemoteWebDriver(new URL("http://" + username + ":" + AccessKey + gridURL), desiredCapabilities);
+                DesiredCapabilities capabilities = new DesiredCapabilities();
+                capabilities.setCapability("browserName","Chrome");
+                capabilities.setCapability("platformName","Windows 10");
+                capabilities.setCapability("browserVersion","142");
+
+                MutableCapabilities ltOptions=new MutableCapabilities();
+                ltOptions.setCapability("username",username);
+                ltOptions.setCapability("accessKey",AccessKey);
+                ltOptions.setCapability("build",buildName);
+                ltOptions.setCapability("project",projectName);
+                ltOptions.setCapability("name",testName);
+                ltOptions.setCapability("tunnel",true);
+                ltOptions.setCapability("tunnelName",tunnelName);
+                ltOptions.setCapability("selenium_version","4.22.0");
+                ltOptions.setCapability("w3c",true);
+                ltOptions.setCapability("plugin","java-testNG");
+                ltOptions.setCapability("autoAcceptAlerts",true);
+                capabilities.setCapability("LT:Options",ltOptions);
+
+                driver = new RemoteWebDriver(new URL("http://" + username + ":" + AccessKey + gridURL), capabilities);
             }else{
                 throw new DriverInitializationException("Unsupported driverType: " + driverType);
             }

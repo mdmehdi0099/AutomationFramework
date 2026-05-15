@@ -13,10 +13,10 @@ import pageFactory.loginPageFactory;
 @Builder
 public class SharedContext {
     private WebDriver driver;
-    private String testCaseID;
-    private String testName;
     private String browser;
     private String buildName;
+    private String TestCaseId;
+    private String TestName;
     private Throwable scenarioError;
     private String projectName;
     private boolean shouldSkip=true;
@@ -24,6 +24,7 @@ public class SharedContext {
     private String accessToken;
     private String studentName;
     private boolean UpdateLambda;
+    private boolean UpdateTestrail;
     private final ScenarioContext scenarioContext=new ScenarioContext();
     public ScenarioContext getScenarioContext(){
         return scenarioContext;

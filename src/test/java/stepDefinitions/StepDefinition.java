@@ -15,6 +15,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import utils.BaseClass;
 import utils.ConfigReader;
+
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.net.MalformedURLException;
 import java.time.Duration;
 
@@ -96,6 +99,25 @@ public class StepDefinition {
         context.getLoginPageFactory().clickProductMenu();
         log.info("The user will click on Product menu");
     }
+    @Then("The user will click on AddtoCart button for product1 {string} and for product2 {string} and for product3 {string}")
+    public void the_user_will_click_on_addto_cart_button_for_product1_and_for_product2_and_for_product3(String product1, String product2, String product3) throws InterruptedException {
+        context.getLoginPageFactory().clickOnAddToCart(product1);
+        context.getLoginPageFactory().waitForLoader();
+        Thread.sleep(4000);
+
+        /*if(!text.equal("")){
+            Assert.fail();
+        }
+         */
+        context.getLoginPageFactory().clickOnAddToCart(product2);
+        context.getLoginPageFactory().waitForLoader();
+        Thread.sleep(4000);
+        context.getLoginPageFactory().clickOnAddToCart(product3);
+        context.getLoginPageFactory().waitForLoader();
+        Thread.sleep(4000);
+
+
+    }
     @Then("The user will click on AddtoCart button")
     public void the_user_will_click_on_addto_cart_button() {
         context.getLoginPageFactory().clickOnCameraAddToCart();
@@ -117,6 +139,25 @@ public class StepDefinition {
     }
 
 
+
+    public static String getStackTrace(Throwable t) {
+        StringWriter sw = new StringWriter();
+        t.printStackTrace(new PrintWriter(sw));
+        return sw.toString();
+    }
+    private static Throwable lastError;
+    public static Throwable getLastError() {
+        return lastError;
+    }
+    public static void switchBackToOriginalWindow(WebDriver driver, String originalWindow) {
+        for (String window : driver.getWindowHandles()) {
+            if (!window.equals(originalWindow)) {
+                driver.switchTo().window(window);
+                driver.close();
+            }
+        }
+        driver.switchTo().window(originalWindow);
+    }
 
 
 

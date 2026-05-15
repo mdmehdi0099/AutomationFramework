@@ -94,7 +94,33 @@ public class loginPageFactory {
                         .equals("complete"));
     }
 
+    @FindBy(xpath = "(//button[contains(text(),'Add to cart')])[1]")
+    WebElement AddToCartIPhone;
 
+    @FindBy(xpath = "(//button[contains(text(),'Add to cart')])[2]")
+    WebElement AddToCartCamera;
+
+    @FindBy(xpath = "(//button[contains(text(),'Add to cart')])[4]")
+    WebElement AddToCartPurse;
+
+    public void clickOnAddToCart(String productName){
+        if (productName.equalsIgnoreCase("iPhone")){
+
+            wait.until(ExpectedConditions.visibilityOf(AddToCartIPhone)).click();
+        }else if(productName.equalsIgnoreCase("Camera")){
+
+            wait.until(ExpectedConditions.visibilityOf(AddToCartCamera)).click();
+        }else if(productName.equalsIgnoreCase("Purse")){
+
+            wait.until(ExpectedConditions.visibilityOf(AddToCartPurse)).click();
+        }
+    }
+    @FindBy(xpath = "//span[@class='loading loading-infinity loading-xl']")
+    WebElement waitForLoader;
+
+    public void waitForLoader(){
+        wait.until(ExpectedConditions.visibilityOf(waitForLoader));
+    }
 
 
 
