@@ -140,7 +140,7 @@ public class Hooks {
     public void tearDown(Scenario scenario) throws IOException, ConfigException {
         driver = context.getDriver();
         //String ExecutionType=this.getglobalValue("TestDriver");
-        System.out.println("After scenario is starting............................");
+        System.out.println("After scenario is starting.14342242344...........................");
         String testCaseId = context.getTestCaseId();
         String status = "passed";
         String comment = "PASSED";
