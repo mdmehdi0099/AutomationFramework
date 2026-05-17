@@ -30,15 +30,15 @@ public class TestRailManager {
     private static void loadTestRailCredentials() throws IOException {
         if (apiClient != null) return;
         log.info("loadTestRailCredentials is called");
-        System.out.println("loadTestRailCredentials is called");
+        //System.out.println("loadTestRailCredentials is called");
         TEST_RAIL_ENGINE_URL = getGlobalValue("TestRailEngineURL");
-        TEST_RAIL_USERNAME = getGlobalValue("TESTRAILUSERNAME");
-        TEST_RAIL_PASSWORD = getGlobalValue("TESTRAILPASSWORD");
+        TEST_RAIL_USERNAME = getGlobalValue("TestRailUsername");
+        TEST_RAIL_PASSWORD = getGlobalValue("TestRailPassword");
         disableSslVerification();
         apiClient = new APIClient(TEST_RAIL_ENGINE_URL);
         apiClient.setUser(TEST_RAIL_USERNAME);
         apiClient.setPassword(TEST_RAIL_PASSWORD);
-        log.info("The value of apiclient is : "+apiClient);
+        //log.info("The value of apiclient is : "+apiClient);
     }
     public static String getGlobalValue(String key) throws IOException {
         Properties prop = new Properties();
@@ -52,16 +52,16 @@ public class TestRailManager {
             System.out.println("initializeTestCasesFromPlan is called");
             String testPlanId = getGlobalValue("TESTPLANID");
             JSONObject plan = (JSONObject) apiClient.sendGet("api/v2/get_plan/"+testPlanId);
-            log.info("the value of plan is :"+plan.toString());
+            //log.info("the value of plan is :"+plan.toString());
             JSONArray entries = (JSONArray) plan.get("entries");
             // Extract build name from plan's name field
             String build = plan.get("name").toString();
-            log.info("The value of build name is : "+build);
+            //log.info("The value of build name is : "+build);
             // Extract project name
             String projectId = plan.get("project_id").toString();
             JSONObject project = (JSONObject) apiClient.sendGet("api/v2/get_project/" + projectId);
             String projectName = project.get("name").toString();
-            log.info("The value of projectName is : "+projectName);
+            //log.info("The value of projectName is : "+projectName);
             for (Object entryObj : entries) {
                 JSONObject entry = (JSONObject) entryObj;
                 JSONArray runs = (JSONArray) entry.get("runs");
@@ -123,6 +123,7 @@ public class TestRailManager {
             }
             String projectId = projectIdObj.toString();
             JSONObject project = (JSONObject) apiClient.sendGet("api/v2/get_project/" + projectId);
+            log.info("project:"+project);
             String projectName = project != null && project.get("name") != null ? project.get("name").toString() : "UNKNOWN_PROJECT";
             System.out.println("Project name: {}"+projectName);
             JSONArray entries = (JSONArray) plan.get("entries");
@@ -198,7 +199,7 @@ public class TestRailManager {
     }
     public static void postResultToTestRail(String caseId, int status, String message) throws IOException {
         try {
-            System.out.println("postResultToTestRail---------------------");
+            log.info("postResultToTestRail---------------------");
             loadTestRailCredentials();
             if (!testCaseMap.containsKey(caseId)) {
                 log.info("⚠️ Cannot post result. Unknown Case ID: " + caseId);

@@ -32,7 +32,6 @@ public class Hooks {
     private final SharedContext context;
     private final BaseClass base;
     WebDriver driver;
-
     {
         try {
             base = new BaseClass();
@@ -41,13 +40,17 @@ public class Hooks {
         }
     }
 
-    public Hooks(SharedContext context) {
-        this.context = context;
+    static {
+        try {
+            ConfigReader.load();
+            System.out.println("Config Loaded Successfully");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    @BeforeAll
-    public static void beforeAll() throws ConfigException {
-        ConfigReader.load(); //load once }
+    public Hooks(SharedContext context) {
+        this.context = context;
     }
 
     @Before
@@ -68,7 +71,6 @@ public class Hooks {
             TestRailManager.initializeTestCasesFromPlan();
         }
         context.setTestrail(isTestrail);
-        log.info("TestrailReadTestCase");
         context.setUpdateTestrail(isUpdateTestRail);
         context.setUpdateLambda(UpdateLambda);
         String testCaseId = null;
@@ -98,7 +100,6 @@ public class Hooks {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
         //setBuildName
         String buildName = "";
         if (context.isTestrail()) {
@@ -134,76 +135,121 @@ public class Hooks {
             context.setBrowser(browser);
         }
     }
-
-
     @After
-    public void tearDown(Scenario scenario) throws IOException, ConfigException {
-        driver = context.getDriver();
-        //String ExecutionType=this.getglobalValue("TestDriver");
-        System.out.println("After scenario is starting.14342242344...........................");
+    public void tearDown(Scenario scenario) {
+        WebDriver driver = context.getDriver();
+        log.info("=================================================");
+        log.info("After Scenario Started");
+        log.info("Scenario Name : {}", scenario.getName());
+        log.info("=================================================");
         String testCaseId = context.getTestCaseId();
-        String status = "passed";
-        String comment = "PASSED";
-        String consoleLogs = consoleOutput.toString();
-        Throwable failure = StepDefinition.getLastError();
+        String status =scenario.isFailed()
+                        ? "failed"
+                        : "passed";
+        Throwable failure =StepDefinition.getLastError();
+        String consoleLogs =consoleOutput != null
+                        ? consoleOutput.toString()
+                        : "";
+        StringBuilder commentBuilder =new StringBuilder();
+        commentBuilder.append(status.toUpperCase())
+                .append("\nScenario: ")
+                .append(scenario.getName())
+                .append("\nTags: ")
+                .append(scenario.getSourceTagNames());
+        if (failure != null) {
+            commentBuilder.append("\n\nException:\n")
+                    .append(
+                            StepDefinition
+                                    .getStackTrace(failure));
+        }
+        if (!consoleLogs.isEmpty()) {
+            commentBuilder.append("\n\nConsole Output:\n").append(consoleLogs);
+        }
+        String comment =commentBuilder.toString();
         try {
-            if (scenario.isFailed()) {
-                status = "failed";
-                comment = "FAILED\n" + "Scenario: " + scenario.getName() + "\n" + "Tags: " + scenario.getSourceTagNames() + "\n\n" + "Console Output:\n" + consoleOutput.toString();
-                if (failure != null) {
-                    comment += "Exception:\n" + StepDefinition.getStackTrace(failure) + "\n";
-                }
-                comment += "Console Output:\n" + consoleLogs;
-                //comment = "FAILED: " + scenario.getStatus().toString() +(scenario.getStatus().name().equals("FAILED") ? scenario.getName() : ""); }
-                if (scenario.isFailed()) {
-                    scenario.attach(consoleOutput.toString(), "text/plain", "Failure Console Output");
-                }
+            // =================================================
+            // Attach failure logs
+            // =================================================
+            if (scenario.isFailed()
+                    && !consoleLogs.isEmpty()) {
+                scenario.attach(
+                        consoleLogs,
+                        "text/plain",
+                        "Failure Console Output");
             }
-            System.out.println("after scenario.isFailed ....");
-            comment += "\nConsole Output:\n" + consoleOutput.toString();
-            comment += "\nScenario: " + scenario.getName();
-            comment += "\nTags: " + scenario.getSourceTagNames();
-            comment += "Console Output:\n" + consoleLogs;
-            String ExecutionType = ConfigReader.get("TestDriver");
-            log.info("The value of ExecutionType is : " + ExecutionType);
-            boolean UpdateLambda = Boolean.parseBoolean(ConfigReader.get("UpdateLambda"));
-            log.info("The value of context.isUpdateLambda : " + context.isUpdateLambda());
-            if ("Remote".equalsIgnoreCase(ExecutionType) && context.isUpdateLambda()) {
-                System.out.println("123execution............");
-                if (driver instanceof JavascriptExecutor) {
-                    ((JavascriptExecutor) driver).executeScript("lambda-status=" + status);
-                    log.info("lambdatest execution is called.....");
-                    System.out.println("execution............");
-                }
-            }
-            System.setOut(originalOut);
-            System.setErr(originalErr);
-            //execute the testrail only if the value passed in global.properties is true
-            if (context.isTestrail() && context.isUpdateTestrail()) {
-                if (testCaseId != null && !testCaseId.isEmpty()) {
-                    if (status.equals("passed")) {
-                        log.info("TestRailPassUpdate");
-                        TestRailPassUpdate(testCaseId, comment);
-                    } else {
-                        log.info("TestRailFailUpdate");
-                        TestRailFailUpdate(testCaseId, comment);
+            // =================================================
+            // LambdaTest Status Update
+            // =================================================
+            String executionType =ConfigReader.get("ExecutionType");
+            if ("Remote".equalsIgnoreCase(executionType)
+                    && context.isUpdateLambda()) {
+                try {
+                    if (driver instanceof JavascriptExecutor) {
+                        ((JavascriptExecutor) driver)
+                                .executeScript("lambda-status="+ status);
+                        log.info("LambdaTest status updated : {}",status);
                     }
+                } catch (Exception e) {
+                    log.error("Failed to update LambdaTest status",e);
+                }
+            }
+            // =================================================
+            // TestRail Update
+            // =================================================
+            if (context.isTestrail()&& context.isUpdateTestrail()&& testCaseId != null&& !testCaseId.isEmpty()) {
+                try {
+                    if ("passed".equalsIgnoreCase(status)) {
+                        log.info("Updating TestRail PASS");
+                        TestRailPassUpdate(testCaseId,comment);
+                    } else {
+                        log.info("Updating TestRail FAIL");
+                        TestRailFailUpdate(testCaseId,comment);
+                    }
+                } catch (Exception e) {
+                    log.error("Failed to update TestRail",e);
                 }
             }
         } catch (Exception e) {
-            System.err.println("Error during afterScenario logic: " + e.getMessage());
-            e.printStackTrace();
+            log.error("Unexpected error in @After hook",e);
         } finally {
-            driver = context.getDriver();
-            if (driver != null) {
-                driver.quit();
-                context.setDriver(null);
-                log.info("Driver closed for scenario: {}", scenario.getName());
+            // =================================================
+            // ALWAYS restore console
+            // =================================================
+            try {
+                if (originalOut != null) {
+                    System.setOut(originalOut);
+                }
+                if (originalErr != null) {
+                    System.setErr(originalErr);
+                }
+            } catch (Exception e) {
+                log.error("Failed restoring console streams",e);
             }
+            // =================================================
+            // Driver Cleanup
+            // =================================================
+            try {
+                if (driver != null) {
+                    driver.quit();
+                    context.setDriver(null);
+                    log.info("Driver closed for scenario: {}",scenario.getName());
+                }
+            } catch (Exception e) {
+                log.error("Error while quitting driver",e);
+            }
+            // =================================================
+            // Clear ThreadLocal Error
+            // =================================================
+            try {
+                StepDefinition.clearLastError();
+            } catch (Exception e) {
+                log.error("Failed clearing ThreadLocal error",e);
+            }
+            log.info("=================================================");
+            log.info("After Scenario Completed");
+            log.info("=================================================");
         }
     }
-
-
     public void TestRailPassUpdate(String testCaseId, String message) {
         try {
             int status = TestRailManager.TEST_CASE_PASS_STATUS;

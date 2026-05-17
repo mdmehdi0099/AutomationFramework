@@ -1,0 +1,104 @@
+[TestNG] Running:
+  C:\Users\mdmeh\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+loadTestRailCredentials is called
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+testCaseId:----------:52
+Test Name:Login to the application and the user will add multiple product in the cart
+projectID from testrail: 2
+projectName from testrail: AutomationFramework
+buildName from properties file : SagesyntaxBuild
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+The user enters username
+The user enters password
+The user clicks on the login button
+The value of WebsiteURL is :https://automationpracticehub.com/
+The value of WebsiteURL123 is :123544
+The user will click on Product menu
+The user will check for the success message
+The name of student is :Mandeep 
+=================================================
+After Scenario Started
+Scenario Name : Login to the application and the user will add multiple product in the cart
+=================================================
+LambdaTest status updated : passed
+Updating TestRail PASS
+postResultToTestRail---------------------
+Posted result for Test case with ID as 52 in run 16
+Driver closed for scenario: Login to the application and the user will add multiple product in the cart
+=================================================
+After Scenario Completed
+=================================================
+[TestNG] Running:
+  C:\Users\mdmeh\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+loadTestRailCredentials is called
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+testCaseId:----------:46
+Test Name:Login to the application and verify successful login with valid credentials
+projectID from testrail: 2
+projectName from testrail: AutomationFramework
+buildName from properties file : SagesyntaxBuild
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+The user enters username
+The user enters password
+The user clicks on the login button
+The value of WebsiteURL is :https://automationpracticehub.com/
+The value of WebsiteURL123 is :123544
+=================================================
+After Scenario Started
+Scenario Name : Login to the application and verify successful login with valid credentials
+=================================================
+LambdaTest status updated : passed
+Updating TestRail PASS
+postResultToTestRail---------------------
+Posted result for Test case with ID as 46 in run 16
+Driver closed for scenario: Login to the application and verify successful login with valid credentials
+=================================================
+After Scenario Completed
+=================================================
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+testCaseId:----------:52
+Test Name:Login to the application and the user will add multiple product in the cart
+projectID from testrail: 2
+projectName from testrail: AutomationFramework
+buildName from properties file : SagesyntaxBuild
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+The user enters username
+The user enters password
+The user clicks on the login button
+The value of WebsiteURL is :https://automationpracticehub.com/
+The value of WebsiteURL123 is :123544
+The user will click on Product menu
+The user will check for the success message
+The name of student is :Mandeep 
+=================================================
+After Scenario Started
+Scenario Name : Login to the application and the user will add multiple product in the cart
+=================================================
+LambdaTest status updated : passed
+Updating TestRail PASS
+postResultToTestRail---------------------
+Error updating TestRail (Pass): garimasaxena63.testrail.io
+Driver closed for scenario: Login to the application and the user will add multiple product in the cart
+=================================================
+After Scenario Completed
+=================================================

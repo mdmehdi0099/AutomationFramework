@@ -91,8 +91,6 @@ public class BaseClass {
     public void TestRailFailUpdate(String testCaseId,String message) throws IOException {
         TestRailManager.postResultToTestRail(testCaseId,TestRailManager.TEST_CASE_FAIL_STATUS,message);
     }
-
-
     public void quitDriver() {
         if (driver != null) {
             driver.quit();

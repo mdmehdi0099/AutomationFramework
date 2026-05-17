@@ -104,7 +104,7 @@ public class APIClient
     public Object sendGet(String uri)
             throws MalformedURLException, IOException, APIException
     {
-        System.out.println("The value of url is :"+uri);
+        //System.out.println("The value of url is :"+uri);
         return this.sendRequest("GET", uri, null);
     }
 
@@ -144,7 +144,16 @@ public class APIClient
 
         String auth = getAuthorization(this.m_user, this.m_password);
         conn.addRequestProperty("Authorization", "Basic " + auth);
+        /*
+        URL url1 = new URL(this.m_url + uri);
 
+        System.out.println(
+                "\n================ API REQUEST ================\n" +
+                        "Method : " + method + "\n" +
+                        "URL    : " + url1 + "\n" +
+                        "============================================="
+        );
+         */
         if (method.equals("POST"))
         {
             conn.setRequestMethod("POST");
@@ -211,7 +220,7 @@ public class APIClient
         // by getOutputStream above) and record any occurred errors (we use
         // the error stream in this case).
         int status = conn.getResponseCode();
-        System.out.println("the value of status code is:"+status);
+        //System.out.println("the value of status code is:"+status);
 
         InputStream istream;
         if (status != 200)

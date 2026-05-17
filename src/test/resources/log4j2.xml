@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <!-- ✅ APPENDERS -->
+    <Appenders>
+        <!-- ✅ Console Appender -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%msg%n"/>
+        </Console> <!-- ✅ File Appender -->
+        <File name="FileLogger" fileName="src/test/logs/test-${date:yyyy-MM-dd}.log" append="true">
+            <PatternLayout pattern="%msg%n"/>
+        </File>
+        <!-- ✅ ADD THIS -->
+        <PatternLayout pattern="%msg%n"/>
+    </Appenders>
+    <!-- ✅ LOGGERS -->
+    <Loggers>
+        <!-- ✅ Your framework logs -->
+        <Logger name="utils" level="info" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="FileLogger"/>
+        </Logger> <Logger name="stepDefinitions" level="info" additivity="false">
+        <AppenderRef ref="Console"/>
+        <AppenderRef ref="FileLogger"/>
+    </Logger> <!-- ✅ Root logger -->
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="FileLogger"/>
+        </Root>
+    </Loggers>
+</Configuration>
