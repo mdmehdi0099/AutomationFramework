@@ -39,49 +39,55 @@ public class BaseClass {
     }
 
     public WebDriver initializeDriver(String driverType, String projectName, String buildName, String testName) throws MalformedURLException, ConfigException {
-        if (driver == null) {
-            String driver1 = ConfigReader.get("TestDriver","Local");
-            String browser = ConfigReader.get("TestBrowserForUIAutomation");
-            String username = ConfigReader.get("Username");
-            String AccessKey = ConfigReader.get("AccessKey");
-            String gridURL = "@hub.lambdatest.com/wd/hub";
-            String tunnelName = ConfigReader.get("TunnelName");
+        try {
+            if (driver == null) {
+                String driver1 = ConfigReader.get("TestDriver", "Local");
+                String browser = ConfigReader.get("TestBrowserForUIAutomation");
+                String username = ConfigReader.get("Username");
+                String AccessKey = ConfigReader.get("AccessKey");
+                String gridURL = "@hub.lambdatest.com/wd/hub";
+                String tunnelName = ConfigReader.get("TunnelName");
 
-            if (driverType.equalsIgnoreCase("Local")) {
-                if (browser.equalsIgnoreCase("GoogleChrome")) {
-                    driver = new ChromeDriver();
-                } else if (browser.equalsIgnoreCase("MozilaFireFox")) {
+                if (driverType.equalsIgnoreCase("Local")) {
+                    if (browser.equalsIgnoreCase("GoogleChrome")) {
+                        driver = new ChromeDriver();
+                    } else if (browser.equalsIgnoreCase("MozilaFireFox")) {
 
-                }else{
-                    throw new DriverInitializationException("Unsupported browser: " + browser);
+                    } else {
+                        throw new DriverInitializationException("Unsupported browser: " + browser);
+                    }
+                } else if (driverType.equalsIgnoreCase("Remote")) {
+                    //set the capability
+                    DesiredCapabilities capabilities = new DesiredCapabilities();
+                    capabilities.setCapability("browserName", "Chrome");
+                    capabilities.setCapability("platformName", "Windows 10");
+                    capabilities.setCapability("browserVersion", "142");
+
+                    MutableCapabilities ltOptions = new MutableCapabilities();
+                    ltOptions.setCapability("username", username);
+                    ltOptions.setCapability("accessKey", AccessKey);
+                    ltOptions.setCapability("build", buildName);
+                    ltOptions.setCapability("project", projectName);
+                    ltOptions.setCapability("name", testName);
+                    ltOptions.setCapability("tunnel", true);
+                    ltOptions.setCapability("tunnelName", tunnelName);
+                    ltOptions.setCapability("selenium_version", "4.22.0");
+                    ltOptions.setCapability("w3c", true);
+                    ltOptions.setCapability("plugin", "java-testNG");
+                    ltOptions.setCapability("autoAcceptAlerts", true);
+                    capabilities.setCapability("LT:Options", ltOptions);
+
+                    driver = new RemoteWebDriver(new URL("http://" + username + ":" + AccessKey + gridURL), capabilities);
+                } else {
+                    throw new DriverInitializationException("Unsupported driverType: " + driverType);
                 }
-            } else if(driverType.equalsIgnoreCase("Remote")){
-                //set the capability
-                DesiredCapabilities capabilities = new DesiredCapabilities();
-                capabilities.setCapability("browserName","Chrome");
-                capabilities.setCapability("platformName","Windows 10");
-                capabilities.setCapability("browserVersion","142");
-
-                MutableCapabilities ltOptions=new MutableCapabilities();
-                ltOptions.setCapability("username",username);
-                ltOptions.setCapability("accessKey",AccessKey);
-                ltOptions.setCapability("build",buildName);
-                ltOptions.setCapability("project",projectName);
-                ltOptions.setCapability("name",testName);
-                ltOptions.setCapability("tunnel",true);
-                ltOptions.setCapability("tunnelName",tunnelName);
-                ltOptions.setCapability("selenium_version","4.22.0");
-                ltOptions.setCapability("w3c",true);
-                ltOptions.setCapability("plugin","java-testNG");
-                ltOptions.setCapability("autoAcceptAlerts",true);
-                capabilities.setCapability("LT:Options",ltOptions);
-
-                driver = new RemoteWebDriver(new URL("http://" + username + ":" + AccessKey + gridURL), capabilities);
-            }else{
-                throw new DriverInitializationException("Unsupported driverType: " + driverType);
+                return driver;
             }
-            return driver;
+        }catch (Exception e){
+            log.info("Failure reason is :{},{} ",e.getStackTrace(),e.getMessage());
+            System.out.println("The value of failure is : "+e.getStackTrace()+","+e.getMessage());
         }
+
         return driver;
     }
 

@@ -1,3 +1,19 @@
+# ============================================================================
+# Author        : Your Name
+# Created Date  : 18-May-2026
+# Project       : Automation Practice Hub
+# Feature Name  : Login and Add to Cart Functionality
+# Description   : This feature validates login functionality and adding
+#                 multiple products to the cart.
+# Framework     : Cucumber BDD with Selenium
+# ============================================================================
+# Modification History:
+# ----------------------------------------------------------------------------
+# Date         Author              Description
+# ----------------------------------------------------------------------------
+# 18-May-2026 Your Name            Initial creation
+# ============================================================================
+
 Feature: Verify login functionality of the application
 
   Background:
@@ -13,7 +29,8 @@ Feature: Verify login functionality of the application
       | username          | password               |
       | sagesyntaxacademy | BuildingExcellence@111 |
 
-  @C52
+  #@C52
+  @C47
   Scenario Outline: Login to the application and the user will add multiple product in the cart
     When The user enters username "<username>" and password "<password>"
     And The user clicks on the login button

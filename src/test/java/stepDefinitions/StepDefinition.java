@@ -48,19 +48,24 @@ public class StepDefinition {
 
     @Given("The user navigates to the application {string}")
     public void the_user_navigates_to_the_application(String url) throws ConfigException, MalformedURLException {
-        String testName = context.getTestName();
-        driver1 = ConfigReader.get("ExecutionType");
-        projectName = ConfigReader.get("ProjectName");
-        buildName = context.getBuildName();
-        projectName = context.getProjectName();
-        driver = baseClass.initializeDriver(driver1, projectName, buildName, testName);
-        context.setDriver(driver);
-        context.initializePageObject(driver);
-        driver.get(url);
-        driver.manage().window().maximize();
-        context.setStudentName("Mandeep");
-        context.set("WebsiteURL", url);
-        context.set("WebsiteURL123", "123544");
+        try {
+            String testName = context.getTestName();
+            driver1 = ConfigReader.get("ExecutionType");
+            projectName = ConfigReader.get("ProjectName");
+            buildName = context.getBuildName();
+            projectName = context.getProjectName();
+            driver = baseClass.initializeDriver(driver1, projectName, buildName, testName);
+            context.setDriver(driver);
+            context.initializePageObject(driver);
+            driver.get(url);
+            driver.manage().window().maximize();
+            context.setStudentName("Mandeep");
+            context.set("WebsiteURL", url);
+            context.set("WebsiteURL123", "123544");
+        }catch (Exception e){
+            log.info("The exception is : {}",e);
+            throw new RuntimeException("The failure reason is :"+e.getStackTrace());
+        }
     }
 
     @When("The user enters username {string} and password {string}")

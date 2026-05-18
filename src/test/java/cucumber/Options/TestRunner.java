@@ -10,7 +10,7 @@ import utils.RetryListener;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = {"stepDefinitions", "utils"},
-        tags = "@C52 or @C46",
+        tags = "@C47",
         plugin = {
                 "pretty",
                 "summary",

@@ -74,6 +74,7 @@ public class loginPageFactory {
             scrollThePage(cameraAddToCart);
             wait.until(ExpectedConditions.visibilityOf(cameraAddToCart)).click();
         }catch (TimeoutException | NoSuchElementException e){
+
             throw new ElementInteractionException("Unable to click cameraAddToCart:", e);
         }
     }

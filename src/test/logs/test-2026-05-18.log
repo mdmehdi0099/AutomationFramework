@@ -1,0 +1,275 @@
+[TestNG] Running:
+  C:\Users\mdmeh\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+loadTestRailCredentials is called
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+testCaseId:----------:47
+Test Name:Login to the application and the user will add multiple product in the cart
+projectID from testrail: 2
+projectName from testrail: AutomationFramework
+buildName from properties file : SagesyntaxBuild
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+The user enters username
+The user enters password
+The user clicks on the login button
+The value of WebsiteURL is :https://automationpracticehub.com/
+The value of WebsiteURL123 is :123544
+The user will click on Product menu
+The user will check for the success message
+The name of student is :Mandeep 
+=================================================
+After Scenario Started
+Scenario Name : Login to the application and the user will add multiple product in the cart
+=================================================
+LambdaTest status updated : passed
+Updating TestRail PASS
+postResultToTestRail---------------------
+Posted result for Test case with ID as 47 in run 16
+Driver closed for scenario: Login to the application and the user will add multiple product in the cart
+=================================================
+After Scenario Completed
+=================================================
+[TestNG] Running:
+  C:\Users\mdmeh\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+loadTestRailCredentials is called
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+testCaseId:----------:47
+Test Name:Login to the application and the user will add multiple product in the cart
+projectID from testrail: 2
+projectName from testrail: AutomationFramework
+buildName from properties file : SagesyntaxBuild
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+=================================================
+After Scenario Started
+Scenario Name : Login to the application and the user will add multiple product in the cart
+=================================================
+Updating TestRail FAIL
+postResultToTestRail---------------------
+Posted result for Test case with ID as 47 in run 16
+=================================================
+After Scenario Completed
+=================================================
+[TestNG] Running:
+  C:\Users\mdmeh\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+loadTestRailCredentials is called
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+testCaseId:----------:47
+Test Name:Login to the application and the user will add multiple product in the cart
+projectID from testrail: 2
+projectName from testrail: AutomationFramework
+buildName from properties file : SagesyntaxBuild
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+The exception is : {}
+org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 400. Message: LT01KRXYK5FZ8MQMK53YM6A759A3-JPSJN-AP-SOUTH-1: either tunnel is not running or disconnected 
+Host info: host: 'DELL', ip: '10.166.72.239'
+Build info: version: '4.43.0', revision: 'dd0f534'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Command: [null, newSession {capabilities=[Capabilities {LT:Options: Capabilities {accessKey: LT..., browserName: Chrome, browserVersion: 142, platformName: Windows 10}]}]
+Capabilities {LT:Options: Capabilities {accessKey: LT..., browserName: Chrome, browserVersion: 142, platformName: Windows 10}
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:114) ~[selenium-remote-driver-4.43.0.jar:?]
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:75) ~[selenium-remote-driver-4.43.0.jar:?]
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:61) ~[selenium-remote-driver-4.43.0.jar:?]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:195) ~[selenium-remote-driver-4.43.0.jar:?]
+	at org.openqa.selenium.remote.TracedCommandExecutor.execute(TracedCommandExecutor.java:53) ~[selenium-remote-driver-4.43.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:606) ~[selenium-remote-driver-4.43.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:290) ~[selenium-remote-driver-4.43.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:213) ~[selenium-remote-driver-4.43.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:173) ~[selenium-remote-driver-4.43.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:169) ~[selenium-remote-driver-4.43.0.jar:?]
+	at utils.BaseClass.initializeDriver(BaseClass.java:79) ~[test-classes/:?]
+	at stepDefinitions.StepDefinition.the_user_navigates_to_the_application(StepDefinition.java:57) ~[test-classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578) ~[?:?]
+	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66) ~[cucumber-java-7.22.1.jar:7.22.1]
+	at io.cucumber.java.Invoker.invoke(Invoker.java:24) ~[cucumber-java-7.22.1.jar:7.22.1]
+	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47) ~[cucumber-java-7.22.1.jar:7.22.1]
+	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29) ~[cucumber-java-7.22.1.jar:7.22.1]
+	at io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66) ~[cucumber-core-7.22.1.jar:7.22.1]
+	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:62) ~[cucumber-core-7.22.1.jar:7.22.1]
+	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10) ~[cucumber-core-7.22.1.jar:7.22.1]
+	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:81) ~[cucumber-core-7.22.1.jar:7.22.1]
+	at io.cucumber.core.runner.TestStep.run(TestStep.java:53) ~[cucumber-core-7.22.1.jar:7.22.1]
+	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51) ~[cucumber-core-7.22.1.jar:7.22.1]
+	at io.cucumber.core.runner.TestCase.run(TestCase.java:86) ~[cucumber-core-7.22.1.jar:7.22.1]
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:77) ~[cucumber-core-7.22.1.jar:7.22.1]
+	at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:135) ~[cucumber-testng-7.22.1.jar:7.22.1]
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136) ~[cucumber-core-7.22.1.jar:7.22.1]
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23) ~[cucumber-core-7.22.1.jar:7.22.1]
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136) ~[cucumber-core-7.22.1.jar:7.22.1]
+	at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:132) ~[cucumber-testng-7.22.1.jar:7.22.1]
+	at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35) ~[cucumber-testng-7.22.1.jar:7.22.1]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578) ~[?:?]
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141) ~[testng-7.12.0.jar:7.12.0]
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:697) ~[testng-7.12.0.jar:7.12.0]
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230) ~[testng-7.12.0.jar:7.12.0]
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63) ~[testng-7.12.0.jar:7.12.0]
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005) ~[testng-7.12.0.jar:7.12.0]
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203) ~[testng-7.12.0.jar:7.12.0]
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154) ~[testng-7.12.0.jar:7.12.0]
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134) ~[testng-7.12.0.jar:7.12.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) [?:?]
+	at org.testng.TestRunner.privateRun(TestRunner.java:744) [testng-7.12.0.jar:7.12.0]
+	at org.testng.TestRunner.run(TestRunner.java:616) [testng-7.12.0.jar:7.12.0]
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421) [testng-7.12.0.jar:7.12.0]
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413) [testng-7.12.0.jar:7.12.0]
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373) [testng-7.12.0.jar:7.12.0]
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312) [testng-7.12.0.jar:7.12.0]
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52) [testng-7.12.0.jar:7.12.0]
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95) [testng-7.12.0.jar:7.12.0]
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274) [testng-7.12.0.jar:7.12.0]
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208) [testng-7.12.0.jar:7.12.0]
+	at org.testng.TestNG.runSuites(TestNG.java:1112) [testng-7.12.0.jar:7.12.0]
+	at org.testng.TestNG.run(TestNG.java:1079) [testng-7.12.0.jar:7.12.0]
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65) [testng-rt.jar:?]
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105) [testng-rt.jar:?]
+=================================================
+After Scenario Started
+Scenario Name : Login to the application and the user will add multiple product in the cart
+=================================================
+Updating TestRail FAIL
+postResultToTestRail---------------------
+Posted result for Test case with ID as 47 in run 16
+=================================================
+After Scenario Completed
+=================================================
+[TestNG] Running:
+  C:\Users\mdmeh\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+loadTestRailCredentials is called
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+testCaseId:----------:47
+Test Name:Login to the application and the user will add multiple product in the cart
+projectID from testrail: 2
+projectName from testrail: AutomationFramework
+buildName from properties file : SagesyntaxBuild
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+Failure reason is :[org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:114), org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:75), org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:61), org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:195), org.openqa.selenium.remote.TracedCommandExecutor.execute(TracedCommandExecutor.java:53), org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:606), org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:290), org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:213), org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:173), org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:169), utils.BaseClass.initializeDriver(BaseClass.java:80), stepDefinitions.StepDefinition.the_user_navigates_to_the_application(StepDefinition.java:57), java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104), java.base/java.lang.reflect.Method.invoke(Method.java:578), io.cucumber.java.Invoker.doInvoke(Invoker.java:66), io.cucumber.java.Invoker.invoke(Invoker.java:24), io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47), io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29), io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66), io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:62), io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10), io.cucumber.core.runner.TestStep.executeStep(TestStep.java:81), io.cucumber.core.runner.TestStep.run(TestStep.java:53), io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51), io.cucumber.core.runner.TestCase.run(TestCase.java:86), io.cucumber.core.runner.Runner.runPickle(Runner.java:77), io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:135), io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136), io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23), io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136), io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:132), io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35), java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104), java.base/java.lang.reflect.Method.invoke(Method.java:578), org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141), org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:697), org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230), org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63), org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005), org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203), org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154), org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134), java.base/java.util.ArrayList.forEach(ArrayList.java:1511), org.testng.TestRunner.privateRun(TestRunner.java:744), org.testng.TestRunner.run(TestRunner.java:616), org.testng.SuiteRunner.runTest(SuiteRunner.java:421), org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413), org.testng.SuiteRunner.privateRun(SuiteRunner.java:373), org.testng.SuiteRunner.run(SuiteRunner.java:312), org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52), org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95), org.testng.TestNG.runSuitesSequentially(TestNG.java:1274), org.testng.TestNG.runSuitesLocally(TestNG.java:1208), org.testng.TestNG.runSuites(TestNG.java:1112), org.testng.TestNG.run(TestNG.java:1079), com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65), com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)],Could not start a new session. Response code 400. Message: LT01KRXYXDNCY49W0TCKD0AXXF1R-K7JZP-AP-SOUTH-1: either tunnel is not running or disconnected 
+Host info: host: 'DELL', ip: '10.166.72.239'
+Build info: version: '4.43.0', revision: 'dd0f534'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Command: [null, newSession {capabilities=[Capabilities {LT:Options: Capabilities {accessKey: LT..., browserName: Chrome, browserVersion: 142, platformName: Windows 10}]}]
+Capabilities {LT:Options: Capabilities {accessKey: LT..., browserName: Chrome, browserVersion: 142, platformName: Windows 10} 
+The exception is : {}
+java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.get(String)" because "this.driver" is null
+	at stepDefinitions.StepDefinition.the_user_navigates_to_the_application(StepDefinition.java:60) ~[test-classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578) ~[?:?]
+	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66) ~[cucumber-java-7.22.1.jar:7.22.1]
+	at io.cucumber.java.Invoker.invoke(Invoker.java:24) ~[cucumber-java-7.22.1.jar:7.22.1]
+	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47) ~[cucumber-java-7.22.1.jar:7.22.1]
+	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29) ~[cucumber-java-7.22.1.jar:7.22.1]
+	at io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66) ~[cucumber-core-7.22.1.jar:7.22.1]
+	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:62) ~[cucumber-core-7.22.1.jar:7.22.1]
+	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10) ~[cucumber-core-7.22.1.jar:7.22.1]
+	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:81) ~[cucumber-core-7.22.1.jar:7.22.1]
+	at io.cucumber.core.runner.TestStep.run(TestStep.java:53) ~[cucumber-core-7.22.1.jar:7.22.1]
+	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51) ~[cucumber-core-7.22.1.jar:7.22.1]
+	at io.cucumber.core.runner.TestCase.run(TestCase.java:86) ~[cucumber-core-7.22.1.jar:7.22.1]
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:77) ~[cucumber-core-7.22.1.jar:7.22.1]
+	at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:135) ~[cucumber-testng-7.22.1.jar:7.22.1]
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136) ~[cucumber-core-7.22.1.jar:7.22.1]
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23) ~[cucumber-core-7.22.1.jar:7.22.1]
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136) ~[cucumber-core-7.22.1.jar:7.22.1]
+	at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:132) ~[cucumber-testng-7.22.1.jar:7.22.1]
+	at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35) ~[cucumber-testng-7.22.1.jar:7.22.1]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578) ~[?:?]
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141) ~[testng-7.12.0.jar:7.12.0]
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:697) ~[testng-7.12.0.jar:7.12.0]
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230) ~[testng-7.12.0.jar:7.12.0]
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63) ~[testng-7.12.0.jar:7.12.0]
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005) ~[testng-7.12.0.jar:7.12.0]
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203) ~[testng-7.12.0.jar:7.12.0]
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154) ~[testng-7.12.0.jar:7.12.0]
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134) ~[testng-7.12.0.jar:7.12.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) [?:?]
+	at org.testng.TestRunner.privateRun(TestRunner.java:744) [testng-7.12.0.jar:7.12.0]
+	at org.testng.TestRunner.run(TestRunner.java:616) [testng-7.12.0.jar:7.12.0]
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421) [testng-7.12.0.jar:7.12.0]
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413) [testng-7.12.0.jar:7.12.0]
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373) [testng-7.12.0.jar:7.12.0]
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312) [testng-7.12.0.jar:7.12.0]
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52) [testng-7.12.0.jar:7.12.0]
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95) [testng-7.12.0.jar:7.12.0]
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274) [testng-7.12.0.jar:7.12.0]
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208) [testng-7.12.0.jar:7.12.0]
+	at org.testng.TestNG.runSuites(TestNG.java:1112) [testng-7.12.0.jar:7.12.0]
+	at org.testng.TestNG.run(TestNG.java:1079) [testng-7.12.0.jar:7.12.0]
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65) [testng-rt.jar:?]
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105) [testng-rt.jar:?]
+=================================================
+After Scenario Started
+Scenario Name : Login to the application and the user will add multiple product in the cart
+=================================================
+Updating TestRail FAIL
+postResultToTestRail---------------------
+Posted result for Test case with ID as 47 in run 16
+=================================================
+After Scenario Completed
+=================================================
+[TestNG] Running:
+  C:\Users\mdmeh\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+loadTestRailCredentials is called
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+testCaseId:----------:47
+Test Name:Login to the application and the user will add multiple product in the cart
+projectID from testrail: 2
+projectName from testrail: AutomationFramework
+buildName from properties file : SagesyntaxBuild
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+project:{"suite_mode":1,"completed_on":null,"name":"AutomationFramework","case_statuses_enabled":false,"default_role_id":null,"groups":[],"id":2,"show_announcement":true,"is_completed":false,"url":"https:\/\/garimasaxena63.testrail.io\/index.php?\/projects\/overview\/2","users":[],"announcement":null}
+Test case map loaded with 9 cases.
+The user enters username
+The user enters password
+The user clicks on the login button
+The value of WebsiteURL is :https://automationpracticehub.com/
+The value of WebsiteURL123 is :123544
+The user will click on Product menu
+The user will check for the success message
+The name of student is :Mandeep 
+=================================================
+After Scenario Started
+Scenario Name : Login to the application and the user will add multiple product in the cart
+=================================================
+LambdaTest status updated : passed
+Updating TestRail PASS
+postResultToTestRail---------------------
+Posted result for Test case with ID as 47 in run 16
+Driver closed for scenario: Login to the application and the user will add multiple product in the cart
+=================================================
+After Scenario Completed
+=================================================
